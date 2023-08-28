@@ -34,9 +34,9 @@ neck = dict(type='FPN',
 test_parameters = dict(conf_threshold=0.4, nms_thres=50, nms_topk=max_lanes)
 
 epochs = 15
-batch_size = 24
+batch_size = 8
 
-optimizer = dict(type='AdamW', lr=0.6e-3)  # 3e-4 for batchsize 8
+optimizer = dict(type='AdamW', lr=3e-4)  # 3e-4 for batchsize 8
 total_iter = (88880 // batch_size) * epochs
 scheduler = dict(type='CosineAnnealingLR', T_max=total_iter)
 
@@ -44,8 +44,8 @@ eval_ep = 1
 save_ep = 10
 
 img_norm = dict(mean=[103.939, 116.779, 123.68], std=[1., 1., 1.])
-ori_img_w = 1640
-ori_img_h = 590
+ori_img_w = 1280
+ori_img_h = 720
 img_w = 800
 img_h = 320
 cut_height = 270

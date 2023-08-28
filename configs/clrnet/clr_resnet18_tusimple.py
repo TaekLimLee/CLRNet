@@ -34,9 +34,9 @@ neck = dict(type='FPN',
 test_parameters = dict(conf_threshold=0.40, nms_thres=50, nms_topk=max_lanes)
 
 epochs = 70
-batch_size = 40
+batch_size = 8
 
-optimizer = dict(type='AdamW', lr=1.0e-3)  # 3e-4 for batchsize 8
+optimizer = dict(type='AdamW', lr=3e-4)  # 3e-4 for batchsize 8
 total_iter = (3616 // batch_size + 1) * epochs
 scheduler = dict(type='CosineAnnealingLR', T_max=total_iter)
 
@@ -48,7 +48,7 @@ ori_img_w = 1280
 ori_img_h = 720
 img_h = 320
 img_w = 800
-cut_height = 160 
+cut_height = 190 
 
 train_process = [
     dict(
